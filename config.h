@@ -90,6 +90,7 @@ float alpha = 0.92;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
+	/* gruvbox dark */
 	"#282828", /* hard contrast: #1d2021 / soft contrast: #32302f */
 	"#cc241d",
 	"#98971a",
@@ -110,7 +111,33 @@ static const char *colorname[] = {
 	/* more colors can be added after 255 to use with DefaultXX */
 	"#282828",   /* 256 -> bg */
 	"#ebdbb2",   /* 257 -> fg */
-	"#add8e6", /* 258 -> cursor */
+	"#add8e6",   /* 258 -> cursor */
+};
+
+/* Terminal colors for alternate (light) palette */
+static const char *altcolorname[] = {
+	/* gruvbox light */
+	"#fdf4c1", // 0
+	"#cc241d", // 1
+	"#98971a", // 2
+	"#d79921", // 3
+	"#458588", // 4
+	"#b16286", // 5
+	"#689d6a", // 6
+	"#7c6f64", // 7
+	"#928374", // 8
+	"#9d0006", // 9
+	"#79740e", // 10
+	"#b57614", // 11
+	"#076678", // 12
+	"#8f3f71", // 13
+	"#427b58", // 14
+	"#3c3836", // 15
+	[255] = 0,
+	/* more colors can be added after 255 to use with DefaultXX */
+	"#fbf1c7",   /* 256 -> bg */
+	"#3c3836",   /* 257 -> fg */
+	"#add8e6",   /* 258 -> cursor */
 };
 
 
@@ -257,6 +284,7 @@ static Shortcut shortcuts[] = {
 	{ MODKEY,               XK_l,           externalpipe,   {.v = openurlcmd } },
 	{ MODKEY,               XK_y,           externalpipe,   {.v = copyurlcmd } },
 	{ MODKEY,               XK_o,           externalpipe,   {.v = copyoutput } },
+	{ XK_ANY_MOD,           XK_F6,          swapcolors,     {.i =  0} },
 };
 
 /*
